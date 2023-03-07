@@ -8,6 +8,9 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class MemberService {
+  add(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private MessageService: MessageService) { }
 

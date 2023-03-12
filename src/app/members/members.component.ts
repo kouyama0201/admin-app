@@ -30,4 +30,9 @@ export class MembersComponent {
         this.members.push(member);
       });
   }
+
+  delete(member: Member): void {
+    this.members = this.members.filter(m => m !== member);
+    this.memberService.deleteMember(member).subscribe();
+  }
 }

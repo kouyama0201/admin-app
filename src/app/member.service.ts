@@ -8,14 +8,15 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class MemberService {
-  add(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
-
   constructor(private MessageService: MessageService) { }
 
   getMembers(): Observable<Member[]> {
     this.MessageService.add('MemberService: 社員一覧データを取得しました');
     return of(MEMBERS);
+  }
+
+  getMember(id: number): Observable<Member | any> {
+    this.MessageService.add(`MemberService: 社員データ(id=${id})を取得しました`);
+    return of(MEMBERS.find(member => member.id == id));
   }
 }

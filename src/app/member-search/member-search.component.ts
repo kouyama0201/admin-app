@@ -20,9 +20,9 @@ export class MemberSearchComponent {
 
   ngOnInit(): void {
     this.members$ = this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap((term: string) => this.memberService.searchMembers(term))
+      debounceTime(300), // キーボード入力の後、300ms待って次の実行に移る
+      distinctUntilChanged(), // 直前のデータと同じ場合は処理を実行しない
+      switchMap((term: string) => this.memberService.searchMembers(term)), // 検索キーワードを受け取る度に、新しいObservableを返す
     )
   }
 }
